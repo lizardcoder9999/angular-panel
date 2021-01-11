@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './modules/authentication/services/token-interceptor.service';
+import { DashboardModule } from '../app/modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +16,7 @@ import { TokenInterceptorService } from './modules/authentication/services/token
     BrowserAnimationsModule,
     HttpClientModule,
     CommonModule,
+    DashboardModule,
   ],
   providers: [
     {

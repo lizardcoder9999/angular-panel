@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-login',
@@ -11,7 +12,7 @@ export class AdminLoginComponent implements OnInit {
   password: string;
   adminLoginData = {};
 
-  constructor(private _auth: LoginService) {}
+  constructor(private _auth: LoginService, private _router: Router) {}
 
   onEmailChange(value: string) {
     this.email = value;
@@ -27,7 +28,10 @@ export class AdminLoginComponent implements OnInit {
       password: this.password,
     };
     this._auth.loginAdmin(this.adminLoginData).subscribe(
-      (res) => localStorage.setItem('token', res.token),
+      (res) => {
+        localStorage.setItem('token', res.token);
+        this._router.navigate(['/']);
+      },
       (err) => console.log(err)
     );
   }
