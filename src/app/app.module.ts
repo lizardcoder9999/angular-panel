@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './modules/authentication/services/token-interceptor.service';
 import { DashboardModule } from '../app/modules/dashboard/dashboard.module';
+import { MaterialModule } from '../app/material-ui.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { DashboardModule } from '../app/modules/dashboard/dashboard.module';
     HttpClientModule,
     CommonModule,
     DashboardModule,
+    MaterialModule,
   ],
   providers: [
     {
