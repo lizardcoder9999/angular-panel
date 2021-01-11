@@ -4,7 +4,7 @@
       <mat-icon>menu</mat-icon>
     </button>
     <a mat-button>Hello </a>
-    <a mat-button>Users</a>
+    <a mat-button [routerLink]="['/users']">Users</a>
     <a mat-button>Posts</a>
     <a mat-button>Backend integration</a>
     <a mat-button (click)="logoutAdmin()">Logout</a>

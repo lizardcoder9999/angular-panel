@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AdminGuard } from './modules/authentication/gaurds/admin.guard';
 import { AdminDashboardComponent } from './modules/dashboard/admin-dashboard/admin-dashboard.component';
+import { UsersComponent } from './modules/dashboard/users/users.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,12 @@ const routes: Routes = [
   },
 
   { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
+
+  {
+    path: 'users',
+    component: UsersComponent,
+    canActivate: [AdminGuard],
+  },
 ];
 
 @NgModule({

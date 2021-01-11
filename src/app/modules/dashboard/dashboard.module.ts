@@ -5,10 +5,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MaterialModule } from '../../material-ui.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { UsersComponent } from './users/users.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AdminDashboardComponent, NavbarComponent, UsersComponent],
-  imports: [CommonModule, MaterialModule, BrowserModule],
-  exports: [AdminDashboardComponent],
+  imports: [CommonModule, MaterialModule, BrowserModule, RouterModule],
+  exports: [AdminDashboardComponent, UsersComponent],
 })
 export class DashboardModule {}
