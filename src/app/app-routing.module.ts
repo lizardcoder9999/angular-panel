@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { AppComponent } from './app.component';
+import { AdminGuard } from './modules/authentication/gaurds/admin.guard';
 const routes: Routes = [
   {
     path: 'login',
@@ -8,6 +9,11 @@ const routes: Routes = [
       import('./modules/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
+  },
+  {
+    path: '',
+    component: AppComponent,
+    canActivate: [AdminGuard],
   },
 ];
 
