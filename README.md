@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/lizardcoder9999/angular-panel.svg?token=4K3JfwGx8edZskRaF4cz&branch=master)](https://travis-ci.com/lizardcoder9999/angular-panel)
 # AdminPanel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
