@@ -7,7 +7,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css'],
 })
-export class AdminDashboardComponent implements OnInit {
+export class AdminDashboardComponent {
   constructor(private _token: TokenService, private _router: Router) {}
 
   adminId: string;
@@ -15,7 +15,8 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit(): void {
     this._token.verifyToken().subscribe(
       (res) => {
-        this.adminId = res._id;
+        this.adminId = res.admin._id;
+        localStorage.setItem('adminid', this.adminId);
       },
       (err) => {
         if (err instanceof HttpErrorResponse) {

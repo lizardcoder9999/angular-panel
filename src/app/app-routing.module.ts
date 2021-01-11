@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AdminGuard } from './modules/authentication/gaurds/admin.guard';
+import { AdminDashboardComponent } from './modules/dashboard/admin-dashboard/admin-dashboard.component';
+
 const routes: Routes = [
   {
     path: 'login',
@@ -11,10 +13,12 @@ const routes: Routes = [
       ),
   },
   {
-    path: '',
-    component: AppComponent,
+    path: 'dashboard',
+    component: AdminDashboardComponent,
     canActivate: [AdminGuard],
   },
+
+  { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
 ];
 
 @NgModule({
