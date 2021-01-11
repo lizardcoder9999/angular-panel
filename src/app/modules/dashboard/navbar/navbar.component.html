@@ -1,1 +1,12 @@
-<p>navbar works!</p>
+<mat-toolbar color="Grey">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a mat-button>Hello </a>
+    <a mat-button>Users</a>
+    <a mat-button>Posts</a>
+    <a mat-button>Backend integration</a>
+    <a mat-button (click)="logoutAdmin()">Logout</a>
+  </mat-toolbar-row>
+</mat-toolbar>
