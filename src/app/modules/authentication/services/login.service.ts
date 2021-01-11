@@ -16,4 +16,10 @@ export class LoginService {
   loggedIn() {
     return !!localStorage.getItem('token');
   }
+
+  //Getting token from local storage so we can send it back to the server
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }
