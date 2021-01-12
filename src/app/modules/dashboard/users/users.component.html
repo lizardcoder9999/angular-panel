@@ -8,9 +8,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Mark Otto</td>
-      <td>markOttto@email.com</td>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
       <td><button type="button" class="btn btn-danger">Delete User</button></td>
     </tr>
   </tbody>

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { TokenService } from '../../authentication/services/token.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AdminService } from '../../authentication/services/admin.service';
+import { CrudService } from '../services/crud.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users',
@@ -13,12 +15,14 @@ export class UsersComponent implements OnInit {
   constructor(
     private _token: TokenService,
     private _router: Router,
-    private _admin: AdminService
+    private _admin: AdminService,
+    private _crud: CrudService
   ) {}
 
   adminId: string;
   adminName: string;
   adminEmail: string;
+  users: any[];
 
   ngOnInit(): void {
     this._token.verifyToken().subscribe(
@@ -28,6 +32,9 @@ export class UsersComponent implements OnInit {
         this._admin.getAdminById(this.adminId).subscribe((res) => {
           this.adminName = res.admin.name;
           this.adminEmail = res.admin.email;
+          this._crud.readAllUsers().subscribe((res) => {
+            this.users = res.users;
+          });
         });
       },
       (err) => {
