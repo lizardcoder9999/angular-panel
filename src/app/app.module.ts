@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './modules/authentication/services/token-interceptor.service';
 import { DashboardModule } from '../app/modules/dashboard/dashboard.module';
 import { MaterialModule } from '../app/material-ui.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { MaterialModule } from '../app/material-ui.module';
     CommonModule,
     DashboardModule,
     MaterialModule,
+    NgxPaginationModule,
   ],
   providers: [
     {

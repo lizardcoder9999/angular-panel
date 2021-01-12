@@ -23,6 +23,8 @@ export class UsersComponent implements OnInit {
   adminName: string;
   adminEmail: string;
   users: any[];
+  deletedId: string;
+  successMessage: string;
 
   ngOnInit(): void {
     this._token.verifyToken().subscribe(
@@ -45,5 +47,18 @@ export class UsersComponent implements OnInit {
         }
       }
     );
+  }
+
+  deleteUserById(id: string) {
+    this._crud.deleteUser(id).subscribe(() => {
+      this._crud.readAllUsers().subscribe((res) => {
+        this.users = res.users;
+        this.successMessage = 'User succesfully deleted';
+      });
+    });
+  }
+
+  removePopup() {
+    this.successMessage = '';
   }
 }
