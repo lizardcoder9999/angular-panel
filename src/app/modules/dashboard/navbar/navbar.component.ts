@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LogoutService } from '../../authentication/services/logout.service';
 
 @Component({
@@ -8,6 +8,9 @@ import { LogoutService } from '../../authentication/services/logout.service';
 })
 export class NavbarComponent implements OnInit {
   constructor(private _logout: LogoutService) {}
+
+  @Input() adminName: string;
+  @Input() adminEmail: string;
 
   ngOnInit(): void {}
 
