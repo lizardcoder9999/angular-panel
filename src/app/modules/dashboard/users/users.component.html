@@ -1,2 +1,17 @@
 <app-navbar [adminName]="adminName" [adminEmail]="adminEmail"></app-navbar>
-<p>users works!</p>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mark Otto</td>
+      <td>markOttto@email.com</td>
+      <td><button type="button" class="btn btn-danger">Delete User</button></td>
+    </tr>
+  </tbody>
+</table>
