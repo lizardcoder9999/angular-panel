@@ -6,10 +6,17 @@ import { MaterialModule } from '../../material-ui.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { UsersComponent } from './users/users.component';
 import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AdminDashboardComponent, NavbarComponent, UsersComponent],
-  imports: [CommonModule, MaterialModule, BrowserModule, RouterModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    BrowserModule,
+    RouterModule,
+    NgxPaginationModule,
+  ],
   exports: [AdminDashboardComponent, UsersComponent],
 })
 export class DashboardModule {}

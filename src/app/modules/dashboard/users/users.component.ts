@@ -25,6 +25,7 @@ export class UsersComponent implements OnInit {
   users: any[];
   deletedId: string;
   successMessage: string;
+  p: number = 1;
 
   ngOnInit(): void {
     this._token.verifyToken().subscribe(
