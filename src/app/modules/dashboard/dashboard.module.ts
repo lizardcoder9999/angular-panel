@@ -7,9 +7,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UsersComponent } from './users/users.component';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AdminDashboardComponent, NavbarComponent, UsersComponent],
+  declarations: [AdminDashboardComponent, NavbarComponent, UsersComponent, MessagesComponent],
   imports: [
     CommonModule,
     MaterialModule,

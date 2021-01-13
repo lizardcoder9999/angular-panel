@@ -26,8 +26,10 @@ export class UsersComponent implements OnInit {
   deletedId: string;
   successMessage: string;
   p: number = 1;
+  loading: string;
 
   ngOnInit(): void {
+    this.loading = 'true';
     this._token.verifyToken().subscribe(
       (res) => {
         this.adminId = res.admin._id;
@@ -37,6 +39,9 @@ export class UsersComponent implements OnInit {
           this.adminEmail = res.admin.email;
           this._crud.readAllUsers().subscribe((res) => {
             this.users = res.users;
+            setTimeout(() => {
+              this.loading = '';
+            }, 950);
           });
         });
       },

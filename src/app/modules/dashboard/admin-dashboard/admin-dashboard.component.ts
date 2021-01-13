@@ -26,6 +26,8 @@ export class AdminDashboardComponent {
   userCount$: Observable<any>;
   userCount: string;
   loading: string;
+  messageCount$: Observable<any>;
+  messageCount: string;
 
   ngOnInit(): void {
     this.loading = 'true';
@@ -40,6 +42,11 @@ export class AdminDashboardComponent {
             .pipe(switchMap((res) => this._crud.getUserCount()))
             .subscribe((count) => {
               this.userCount = count.count;
+            });
+          this.messageCount$ = interval(1000)
+            .pipe(switchMap((res) => this._crud.getMessageCount()))
+            .subscribe((msgcount) => {
+              this.messageCount = msgcount.count;
             });
           setTimeout(() => {
             this.loading = '';
