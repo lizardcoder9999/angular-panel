@@ -4,6 +4,9 @@ import { CrudService } from '../services/crud.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../../authentication/services/token.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { interval, Observable } from 'rxjs';
+import { MessageService } from '../services/message.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-messages',
@@ -15,13 +18,16 @@ export class MessagesComponent implements OnInit {
     private _token: TokenService,
     private _router: Router,
     private _admin: AdminService,
-    private _crud: CrudService
+    private _crud: CrudService,
+    private _message: MessageService
   ) {}
 
   adminName: string;
   adminEmail: string;
   loading: string;
   adminId: string;
+  messages: [];
+  messages$: Observable<any>;
 
   ngOnInit(): void {
     // this.loading = 'true';
@@ -32,6 +38,12 @@ export class MessagesComponent implements OnInit {
         this._admin.getAdminById(this.adminId).subscribe((res) => {
           this.adminName = res.admin.name;
           this.adminEmail = res.admin.email;
+          this.messages$ = interval(1000)
+            .pipe(switchMap((message) => this._message.getAllMessages()))
+            .subscribe((messages) => {
+              this.messages = messages.messages;
+              // console.log(this.messages);
+            });
         });
       },
       (err) => {

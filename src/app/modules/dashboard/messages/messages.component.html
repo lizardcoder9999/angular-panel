@@ -2,3 +2,23 @@
 <div *ngIf="loading">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">From</th>
+      <th scope="col">email</th>
+      <th scope="col">status</th>
+      <th scope="col">Time</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let message of messages">
+      <td>{{ message.from }}</td>
+      <td>{{ message.email }}</td>
+      <td>{{ message.messageStatus }}</td>
+      <td>{{ message.date }}</td>
+      <td>@mdo</td>
+    </tr>
+  </tbody>
+</table>
