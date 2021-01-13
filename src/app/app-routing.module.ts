@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { AdminGuard } from './modules/authentication/gaurds/admin.guard';
 import { AdminDashboardComponent } from './modules/dashboard/admin-dashboard/admin-dashboard.component';
 import { UsersComponent } from './modules/dashboard/users/users.component';
+import { MessagesComponent } from './modules/dashboard/messages/messages.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'messages',
+    component: MessagesComponent,
     canActivate: [AdminGuard],
   },
 ];

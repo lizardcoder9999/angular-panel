@@ -1,1 +1,4 @@
-<p>messages works!</p>
+<app-navbar [adminName]="adminName" [adminEmail]="adminEmail"></app-navbar>
+<div *ngIf="loading">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

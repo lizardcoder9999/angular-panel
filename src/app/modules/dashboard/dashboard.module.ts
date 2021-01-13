@@ -10,7 +10,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
-  declarations: [AdminDashboardComponent, NavbarComponent, UsersComponent, MessagesComponent],
+  declarations: [
+    AdminDashboardComponent,
+    NavbarComponent,
+    UsersComponent,
+    MessagesComponent,
+  ],
   imports: [
     CommonModule,
     MaterialModule,
@@ -18,6 +23,6 @@ import { MessagesComponent } from './messages/messages.component';
     RouterModule,
     NgxPaginationModule,
   ],
-  exports: [AdminDashboardComponent, UsersComponent],
+  exports: [AdminDashboardComponent, UsersComponent, MessagesComponent],
 })
 export class DashboardModule {}
