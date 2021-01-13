@@ -25,8 +25,10 @@ export class AdminDashboardComponent {
   adminEmail: string;
   userCount$: Observable<any>;
   userCount: string;
+  loading: string;
 
   ngOnInit(): void {
+    this.loading = 'true';
     this._token.verifyToken().subscribe(
       (res) => {
         this.adminId = res.admin._id;
@@ -34,14 +36,14 @@ export class AdminDashboardComponent {
         this._admin.getAdminById(this.adminId).subscribe((res) => {
           this.adminName = res.admin.name;
           this.adminEmail = res.admin.email;
-          // this._crud.getUserCount().subscribe((count) => {
-          //   this.userCount = count.count;
-          // });
           this.userCount$ = interval(1000)
             .pipe(switchMap((res) => this._crud.getUserCount()))
             .subscribe((count) => {
               this.userCount = count.count;
             });
+          setTimeout(() => {
+            this.loading = '';
+          }, 950);
         });
       },
       (err) => {
