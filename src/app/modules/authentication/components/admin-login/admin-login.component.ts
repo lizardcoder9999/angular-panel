@@ -11,6 +11,7 @@ export class AdminLoginComponent implements OnInit {
   email: string;
   password: string;
   adminLoginData = {};
+  errorMessage: string;
 
   constructor(private _auth: LoginService, private _router: Router) {}
 
@@ -32,7 +33,12 @@ export class AdminLoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this._router.navigate(['/dashboard']);
       },
-      (err) => console.log(err)
+      (err) => {
+        this.errorMessage = 'Email Or Password Incorrect';
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 4000);
+      }
     );
   }
 

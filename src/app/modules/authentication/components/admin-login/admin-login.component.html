@@ -3,6 +3,11 @@
     <meta charset="utf-8" />
   </head>
   <body>
+    <div id="notification-area" *ngIf="errorMessage">
+      <div class="notification error">
+        {{ errorMessage }}
+      </div>
+    </div>
     <div class="box">
       <h1>Admin Login</h1>
       <input
