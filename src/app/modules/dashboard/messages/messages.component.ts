@@ -7,6 +7,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { interval, Observable } from 'rxjs';
 import { MessageService } from '../services/message.service';
 import { switchMap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { RespondPopupComponent } from '../respond-popup/respond-popup.component';
 
 @Component({
   selector: 'app-messages',
@@ -19,7 +21,8 @@ export class MessagesComponent implements OnInit {
     private _router: Router,
     private _admin: AdminService,
     private _crud: CrudService,
-    private _message: MessageService
+    private _message: MessageService,
+    private serviceDialog: MatDialog
   ) {}
 
   adminName: string;
@@ -30,7 +33,7 @@ export class MessagesComponent implements OnInit {
   messages$: Observable<any>;
 
   ngOnInit(): void {
-    // this.loading = 'true';
+    this.loading = 'true';
     this._token.verifyToken().subscribe(
       (res) => {
         this.adminId = res.admin._id;
@@ -42,8 +45,10 @@ export class MessagesComponent implements OnInit {
             .pipe(switchMap((message) => this._message.getAllMessages()))
             .subscribe((messages) => {
               this.messages = messages.messages;
-              // console.log(this.messages);
             });
+          setTimeout(() => {
+            this.loading = '';
+          }, 950);
         });
       },
       (err) => {
@@ -54,5 +59,11 @@ export class MessagesComponent implements OnInit {
         }
       }
     );
+  }
+
+  respond() {
+    this.serviceDialog.open(RespondPopupComponent, {
+      width: '650px',
+    });
   }
 }

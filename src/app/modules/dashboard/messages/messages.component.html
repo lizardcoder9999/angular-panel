@@ -18,7 +18,11 @@
       <td>{{ message.email }}</td>
       <td>{{ message.messageStatus }}</td>
       <td>{{ message.date }}</td>
-      <td>@mdo</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="respond()">
+          Respond</button
+        ><button type="button" class="btn btn-success">Mark as read</button>
+      </td>
     </tr>
   </tbody>
 </table>

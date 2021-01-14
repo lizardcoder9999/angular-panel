@@ -8,6 +8,7 @@ import { UsersComponent } from './users/users.component';
 import { RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MessagesComponent } from './messages/messages.component';
+import { RespondPopupComponent } from './respond-popup/respond-popup.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MessagesComponent } from './messages/messages.component';
     NavbarComponent,
     UsersComponent,
     MessagesComponent,
+    RespondPopupComponent,
   ],
   imports: [
     CommonModule,
