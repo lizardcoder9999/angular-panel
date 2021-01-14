@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MsgidService } from '../services/msgid.service';
 
 @Component({
   selector: 'app-respond-popup',
@@ -6,9 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./respond-popup.component.css'],
 })
 export class RespondPopupComponent implements OnInit {
-  constructor() {}
+  constructor(private _msg: MsgidService) {}
 
   @Input() msgId: string;
+  message: string;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this._msg
+      .getMsgById(this.msgId)
+      .subscribe((msg) => (this.message = msg.message));
+  }
 }
