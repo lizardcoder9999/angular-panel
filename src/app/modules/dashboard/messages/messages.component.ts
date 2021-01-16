@@ -31,6 +31,7 @@ export class MessagesComponent implements OnInit {
   adminId: string;
   messages: [];
   messages$: Observable<any>;
+  p: number = 1;
 
   ngOnInit(): void {
     this.loading = 'true';

@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let message of messages">
+    <tr *ngFor="let message of messages" | paginate: { itemsPerPage: 5, currentPage: p }>
       <td>{{ message.from }}</td>
       <td>{{ message.email }}</td>
       <td>{{ message.messageStatus }}</td>
@@ -26,3 +26,5 @@
     </tr>
   </tbody>
 </table>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

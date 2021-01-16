@@ -9,6 +9,7 @@ export class CrudService {
   private _deleteurl = 'http://127.0.0.1:5000/api/user/delete';
   private _usercounturl = 'http://127.0.0.1:5000/api/user/count';
   private _messagecounturl = 'http://127.0.0.1:5000/api/admin/message/count';
+  private _userregexurl = 'http://127.0.0.1:5000/api/user/partial';
 
   constructor(private _http: HttpClient) {}
 
@@ -26,5 +27,9 @@ export class CrudService {
 
   getMessageCount() {
     return this._http.get(this._messagecounturl);
+  }
+
+  getUserByRegex(input) {
+    return this._http.get(`${this._userregexurl}/${input}`);
   }
 }
